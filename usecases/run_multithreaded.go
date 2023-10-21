@@ -5,7 +5,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/dmfed/thetool/util"
+	"github.com/dmfed/tool/util"
 )
 
 func RunThreaded(ctx context.Context, in, out string, threads int, cmd []string) error {

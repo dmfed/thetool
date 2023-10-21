@@ -2,4 +2,6 @@ build:
 	go build -v
 
 install:
-	sudo cp thetool /usr/local/bin
+	sudo cp tool /usr/local/bin
+
+all: build install

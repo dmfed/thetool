@@ -7,11 +7,12 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/dmfed/thetool/usecases"
+	"github.com/dmfed/tool/usecases"
 )
 
 var (
 	cmdJP   bool
+	cmdXP   bool
 	cmdRun  bool
 	input   string
 	output  string
@@ -20,6 +21,7 @@ var (
 
 func main() {
 	flag.BoolVar(&cmdJP, "jp", false, "json pretty")
+	flag.BoolVar(&cmdXP, "xp", false, "xml pretty")
 	flag.BoolVar(&cmdRun, "run", false, "run the following command")
 	flag.StringVar(&input, "in", "", "input file (leave empty to read from stdin)")
 	flag.StringVar(&output, "out", "", "output file (leave empty to write to stdout)")
@@ -34,6 +36,8 @@ func main() {
 	switch {
 	case cmdJP:
 		err = usecases.JsonPretty(input, output)
+	case cmdXP:
+		err = usecases.XMLPretty(input, output)
 	case cmdRun:
 		err = usecases.RunThreaded(ctx, input, output, threads, flag.Args())
 	default:
