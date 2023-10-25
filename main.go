@@ -19,6 +19,10 @@ var (
 	threads int
 )
 
+var credits string = `The Tool (c) Dmitry Fedotov
+https://github.com/dmfed/tool
+`
+
 func main() {
 	flag.BoolVar(&cmdJP, "jp", false, "json pretty")
 	flag.BoolVar(&cmdXP, "xp", false, "xml pretty")
@@ -26,6 +30,11 @@ func main() {
 	flag.StringVar(&input, "in", "", "input file (leave empty to read from stdin)")
 	flag.StringVar(&output, "out", "", "output file (leave empty to write to stdout)")
 	flag.IntVar(&threads, "t", 1, "how many threads to start")
+
+	flag.Usage = func() {
+		fmt.Println(credits)
+		flag.PrintDefaults()
+	}
 	flag.Parse()
 
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGTERM, syscall.SIGINT)
