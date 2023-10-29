@@ -19,7 +19,7 @@ var (
 	threads int
 )
 
-var credits string = `The Tool (c) Dmitry Fedotov
+var credits string = `The Tool (c) 2023 Dmitry Fedotov
 https://github.com/dmfed/tool
 `
 

@@ -31,7 +31,7 @@ func (r *Runner) Run(ctx context.Context, in <-chan string, threads int) <-chan 
 				cmd := append(copyCmd(r.cmd), args...)
 				output, err := RunCmd(cmd)
 				if err != nil {
-					output = fmt.Sprintf("could not execute %s: %s", strings.Join(cmd, " "), err.Error())
+					output = fmt.Sprintf("failed %s: %s\n, output: %s", strings.Join(cmd, " "), err.Error(), output)
 				}
 
 				select {
