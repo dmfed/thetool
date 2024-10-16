@@ -19,13 +19,13 @@ var (
 	threads int
 )
 
-var commit string
+var Commit string
 
 var credits string = fmt.Sprintf(`The Tool (c) 2023 Dmitry Fedotov
 https://github.com/dmfed/tool
 
 commit: %s
-`, commit)
+`, Commit)
 
 func main() {
 	flag.BoolVar(&cmdJP, "jp", false, "json pretty")

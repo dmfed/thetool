@@ -1,5 +1,5 @@
 build:
-	go build -v -ldflags "-X main.commit=$(shell git log --pretty=format:"%h" -1)"
+	go build -v -ldflags "-X 'main.Commit=$(shell git log --pretty=format:%H -1)'"
 
 install:
 	sudo cp tool /usr/local/bin
